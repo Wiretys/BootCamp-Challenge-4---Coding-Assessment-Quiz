@@ -12,9 +12,9 @@ Project was designed to teach advance JavaScript by producing a Coding Quiz
 
 Links: 
 ```
-https://wiretys.github.io/Challenge-3/
+https://wiretys.github.io/BootCamp-Challenge-4---Coding-Assessment-Quiz/
 
-https://github.com/Wiretys/Challenge-3
+https://github.com/Wiretys/BootCamp-Challenge-4---Coding-Assessment-Quiz
 
 ## Contributer
 Rex Wilson
