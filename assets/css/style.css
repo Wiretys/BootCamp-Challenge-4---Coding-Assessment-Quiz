@@ -8,19 +8,18 @@
 
 /* Root Color Palette */
 :root {
-    --darkgray: rgb(153,153,153);
-    --lightgray:rgb(173,173,173);
-    --lightblue: rgb(66,139,202);
-    --darkblue:rgb(1,51,100);
-    --red: rgb(211,11,13);
-    --black:rgb(35,35,35);
+    --darkgray: rgb(153, 153, 153);
+    --lightgray: rgb(173, 173, 173);
+    --lightblue: rgb(66, 139, 202);
+    --darkblue: rgb(1, 51, 100);
+    --red: rgb(211, 11, 13);
+    --black: rgb(35, 35, 35);
 }
 
 /* Body Background Color */
 body {
     background-color: var(--lightgray);
 }
-
 
 /* Header */
 .header {
@@ -42,8 +41,6 @@ body {
 
 }
 
-
-
 .startQuiz {
     outline: none;
     border: none;
@@ -52,8 +49,6 @@ body {
     border-radius: 12px;
     width: 75%;
     margin: 1% 10% 0px 10%;
-    
-
 }
 
 .countdownTimer {
@@ -85,18 +80,7 @@ body {
     list-style-type: none;
 }
 
-.randomButtonList button{
+.randomButtonList button {
     font-size: 32px;
     margin: 30px 0px 15px;
 }
-
-
-
-
-
-
-
-
-
-
-
