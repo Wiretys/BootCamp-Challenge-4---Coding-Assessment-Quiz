@@ -1,11 +1,12 @@
 var timerEl = document.getElementById("countdown");
 var formEl = document.querySelector("#btnStartQuiz")
+var startQuizBtn = document.getElementById("btnStartQuiz");
 
 
 
-
+//Start Quiz Button Funtion
 var startQuiz = function () {
-    var timeLeft = 5;
+    var timeLeft = 15;
 
     var timeInterval = setInterval(function () {
         timerEl.textContent = timeLeft + " seconds remaining";
@@ -20,7 +21,6 @@ var startQuiz = function () {
     }, 1000);
 }
 
-
 function calculateScore() {
     var answeredCorrect = 1;
     var answeredWrong = 1;
@@ -32,6 +32,43 @@ function calculateScore() {
     alert(answeredCorrect + " Correct, " + answeredWrong + " Wrong at " + percentCorrect +
         "%. You attempted " + totalQuestions + " questions.");
 }
-startQuiz();
 
-formEl.addEventListener("submit", startQuiz);
+startQuizBtn.addEventListener("click", startQuiz);
+
+// formEl.addEventListener("submit", startQuiz);
+
+// set question array
+
+var questionsOptionList = {
+    [1]: "What syntax creates an array?",
+    option101: "pp",
+    option102: "oo",
+    option103: "vv",
+    option104: "[]",
+
+    [2]: "What syntax command adds to an array?",
+    option201: ".push",
+    option202: ".pull",
+    option203: ".fetch",
+    option204: ".get",
+};
+
+// //quiz questions
+var quizHeaderQuestionsJs = document.getElementById('quizHeaderQuestionsJs')
+quizHeaderQuestionsJs.textContent = questionsOptionList[1];
+
+// // 1st button
+var btn1 = document.getElementById('btn-1')
+btn1.textContent = questionsOptionList.option101;
+
+// // 2nd button
+var btn2 = document.getElementById('btn-2')
+btn2.textContent = questionsOptionList.option102;
+
+// // 3rd button
+var btn3 = document.getElementById('btn-3')
+btn3.textContent = questionsOptionList.option103;
+
+// 4th button
+var btn4 = document.getElementById('btn-4')
+btn4.textContent = questionsOptionList.option104;

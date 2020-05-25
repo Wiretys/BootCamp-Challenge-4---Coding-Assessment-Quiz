@@ -41,16 +41,6 @@ body {
 
 }
 
-.startQuiz {
-    outline: none;
-    border: none;
-    background: var(--lightblue);
-    font-size: 30px;
-    border-radius: 12px;
-    width: 75%;
-    margin: 1% 10% 0px 10%;
-}
-
 .countdownTimer {
     float: right;
     padding: 0px 30px 5px;
@@ -67,7 +57,7 @@ body {
 .container {
     flex: center;
     background-color: var(--lightgray);
-    margin: 40px 50px 30px 50px;
+    margin: 40px 20px 30px 20px;
 }
 
 .container h1 {
@@ -81,6 +71,21 @@ body {
 }
 
 .randomButtonList button {
-    font-size: 32px;
-    margin: 30px 0px 15px;
+    outline: none;
+    border: none;
+    background: var(--lightblue);
+    font-size: 30px;
+    border-radius: 12px;
+    width: 60%;
+    margin: 3% 10% 3px 10%;
+}
+
+.startQuiz {
+    outline: none;
+    border: none;
+    background: var(--red);
+    font-size: 30px;
+    border-radius: 12px;
+    width: 25%;
+    margin: 3.75%;
 }

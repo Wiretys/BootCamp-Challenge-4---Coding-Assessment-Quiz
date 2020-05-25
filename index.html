@@ -17,53 +17,28 @@
     <div>
         <h1 class="headerTitle">CODING QUIZ</h1>
     </div>
-
 </head>
 
 <body>
-
     <div class="container">
         <!--questions-->
         <div>
-            <h1 class="quizHeaderQuestions">AA</h1>
+            <h1 id="quizHeaderQuestionsJs" class="quizHeaderQuestionsCss"></h1>
         </div>
         <!--options for answers-->
-        <ul class="randomButtonList">
-            <li><button>A1</button></li>
-            <li><button>A2</button></li>
-            <li><button>A3</button></li>
-            <li><button>A4</button></li>
-        </ul>
-        <!--shows correct or wrong-->
-        <div class="correctorwrong">b</div>
-        <!--final score-->
-        <div class="finalScore">c</div>
-        <!--enter initials-->
-        <div class="initials">d</div>
-        <!--buttons to submit inital-->
-        <button class="btnsubmit">e</button>
-        <!--button to back or clear highscores-->
-        <button class="btngoback">f</button>
-        <button class="btngoforward">g</button>
-        <!--start quiz button-->
+        <optionList>
+            <ul id="listEl" class="randomButtonList">
+                <li><button id="btn-1"></button></li>
+                <li><button id="btn-2"></button></li>
+                <li><button id="btn-3"></button></li>
+                <li><button id="btn-4"></button></li>
+            </ul>
+        </optionList>
         <div>
-            <form id="btnStartQuiz">
-                <button class="startQuiz" type="submit">Click to Start Quiz</button>
-            </form>
+            <button id="btnStartQuiz" class="startQuiz" type="submit">Click to Start Quiz</button>
         </div>
-
-
     </div>
-    <script>
-
-
-    </script>
-
 </body>
-
-</html>
-</div>
 <script src="assets/js/script.js"></script>
-</body>
 
 </html>
