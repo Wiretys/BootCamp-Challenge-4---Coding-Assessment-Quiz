@@ -1,6 +1,7 @@
 var timerEl = document.getElementById("countdown");
 var formEl = document.querySelector("#btnStartQuiz")
 var startQuizBtn = document.getElementById("btnStartQuiz");
+var endgame = 1;
 
 
 
@@ -12,7 +13,7 @@ var startQuiz = function () {
         timerEl.textContent = timeLeft + " seconds remaining";
         timeLeft--;
 
-        if (timeLeft === -2) {
+        if (timeLeft === -2 || endgame === 0) {
             timerEl.textContent = "";
             calculateScore();
             clearInterval(timeInterval);
@@ -33,7 +34,6 @@ function calculateScore() {
         "%. You attempted " + totalQuestions + " questions.");
 }
 
-startQuizBtn.addEventListener("click", startQuiz);
 
 // formEl.addEventListener("submit", startQuiz);
 
@@ -41,9 +41,9 @@ startQuizBtn.addEventListener("click", startQuiz);
 
 var questionsOptionList = {
     [1]: "What syntax creates an array?",
-    option101: "pp",
-    option102: "oo",
-    option103: "vv",
+    option101: "{}",
+    option102: "//",
+    option103: "<>",
     option104: "[]",
 
     [2]: "What syntax command adds to an array?",
@@ -51,24 +51,113 @@ var questionsOptionList = {
     option202: ".pull",
     option203: ".fetch",
     option204: ".get",
+
+    [3]: "Which syntax would multiply variables?",
+    option301: "var / 2",
+    option302: "var * 2",
+    option303: "var x 2",
+    option304: "var -(var)",
 };
 
-// //quiz questions
+//quiz questions
 var quizHeaderQuestionsJs = document.getElementById('quizHeaderQuestionsJs')
 quizHeaderQuestionsJs.textContent = questionsOptionList[1];
 
-// // 1st button
+// 1st button
 var btn1 = document.getElementById('btn-1')
 btn1.textContent = questionsOptionList.option101;
 
-// // 2nd button
+// 2nd button
 var btn2 = document.getElementById('btn-2')
 btn2.textContent = questionsOptionList.option102;
 
-// // 3rd button
+// 3rd button
 var btn3 = document.getElementById('btn-3')
 btn3.textContent = questionsOptionList.option103;
 
 // 4th button
 var btn4 = document.getElementById('btn-4')
 btn4.textContent = questionsOptionList.option104;
+
+if (btn4.addEventListener("click", round2)) {
+    answeredCorrect = 0 + 1;
+} else {
+    answeredWrong = 0 + 1;
+    btn1.addEventListener("click", round2)
+    btn2.addEventListener("click", round2)
+    btn3.addEventListener("click", round2)
+
+};
+
+function round2() {
+    //quiz questions
+    var quizHeaderQuestionsJs = document.getElementById('quizHeaderQuestionsJs')
+    quizHeaderQuestionsJs.textContent = questionsOptionList[2];
+
+    // 1st button
+    var btn1 = document.getElementById('btn-1')
+    btn1.textContent = questionsOptionList.option201;
+
+    // 2nd button
+    var btn2 = document.getElementById('btn-2')
+    btn2.textContent = questionsOptionList.option202;
+
+    // 3rd button
+    var btn3 = document.getElementById('btn-3')
+    btn3.textContent = questionsOptionList.option203;
+
+    // 4th button
+    var btn4 = document.getElementById('btn-4')
+    btn4.textContent = questionsOptionList.option204;
+
+    if (btn2.addEventListener("click", round3)) {
+        answeredCorrect = answeredCorrect + 1;
+    } else {
+        answeredWrong = answeredWrong + 1;
+        btn2.addEventListener("click", round3)
+        btn3.addEventListener("click", round3)
+        btn4.addEventListener("click", round3)
+
+    }
+    
+};
+
+
+function round3() {
+    //quiz questions
+    var quizHeaderQuestionsJs = document.getElementById('quizHeaderQuestionsJs')
+    quizHeaderQuestionsJs.textContent = questionsOptionList[3];
+
+    // 1st button
+    var btn1 = document.getElementById('btn-1')
+    btn1.textContent = questionsOptionList.option301;
+
+    // 2nd button
+    var btn2 = document.getElementById('btn-2')
+    btn2.textContent = questionsOptionList.option302;
+
+    // 3rd button
+    var btn3 = document.getElementById('btn-3')
+    btn3.textContent = questionsOptionList.option303;
+
+    // 4th button
+    var btn4 = document.getElementById('btn-4')
+    btn4.textContent = questionsOptionList.option304;
+
+    if (btn2.addEventListener("click", round4)) {
+        answeredCorrect = answeredCorrect + 1;
+    } else {
+        answeredWrong = answeredWrong + 1;
+        btn1.addEventListener("click", round4)
+        btn3.addEventListener("click", round4)
+        btn4.addEventListener("click", round4)
+
+    }
+};
+
+function round4() {
+            endgame === 0;
+        }
+    
+
+startQuizBtn.addEventListener("click", startQuiz);
