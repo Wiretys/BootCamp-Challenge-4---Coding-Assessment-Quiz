@@ -50,10 +50,10 @@ function round1() {
     // 4th button
     var btn4 = document.getElementById('btn-4')
     btn4.textContent = questionsOptionList.option104;
-    btn4.addEventListener("click", round2Correct);
-    btn1.addEventListener("click", round2Wrong);
-    btn2.addEventListener("click", round2Wrong);
-    btn3.addEventListener("click", round2Wrong);
+    btn4.addEventListener("click", round1Correct);
+    btn1.addEventListener("click", round1Wrong);
+    btn2.addEventListener("click", round1Wrong);
+    btn3.addEventListener("click", round1Wrong);
 };
 
 function round2() {
@@ -72,12 +72,10 @@ function round2() {
     // 4th button
     var btn4 = document.getElementById('btn-4')
     btn4.textContent = questionsOptionList.option204;
-
-    btn1.addEventListener("click", round3Correct);
-    btn2.addEventListener("click", round3Wrong);
-    btn3.addEventListener("click", round3Wrong);
-    btn4.addEventListener("click", round3Wrong);
-
+    btn1.addEventListener("click", round2Correct);
+    btn2.addEventListener("click", round2Wrong);
+    btn3.addEventListener("click", round2Wrong);
+    btn4.addEventListener("click", round2Wrong);
 };
 
 function round3() {
@@ -96,10 +94,10 @@ function round3() {
     // 4th button
     var btn4 = document.getElementById('btn-4')
     btn4.textContent = questionsOptionList.option304;
-    btn2.addEventListener("click", round4Correct);
-    btn1.addEventListener("click", round4Wrong);
-    btn3.addEventListener("click", round4Wrong);
-    btn4.addEventListener("click", round4Wrong);
+    btn2.addEventListener("click", round3Correct);
+    btn1.addEventListener("click", round3Wrong);
+    btn3.addEventListener("click", round3Wrong);
+    btn4.addEventListener("click", round3Wrong);
 };
 
 function round4() {
@@ -138,6 +136,16 @@ var startQuiz = function () {
     }, 1000);
 }
 
+function round1Correct() {
+    round2();
+    addToAnsweredCorrect();
+};
+
+function round1Wrong() {
+    round2();
+    addToAnsweredWrong();
+};
+
 function round2Correct() {
     round3();
     addToAnsweredCorrect();
@@ -158,14 +166,6 @@ function round3Wrong() {
     addToAnsweredWrong();
 };
 
-function round4Correct() {
-    addToAnsweredCorrect();
-};
-
-function round4Wrong() {
-    addToAnsweredWrong();
-};
-
 function addToAnsweredCorrect() {
     answeredCorrect = answeredCorrect + 1;
 }
@@ -177,7 +177,7 @@ function addToAnsweredWrong() {
 function calculateScore() {
     var totalQuestions = answeredCorrect + answeredWrong;
     var decimalCorrect = answeredCorrect / totalQuestions;
-    var wholePercent = decimalCorrect.toFixed(3);
+    var wholePercent = decimalCorrect.toFixed(2);
     var percentCorrect = wholePercent * 100;
     alert(answeredCorrect + " Correct, " + answeredWrong + " Wrong at " + percentCorrect +
         "%. You attempted " + totalQuestions + " questions.");
