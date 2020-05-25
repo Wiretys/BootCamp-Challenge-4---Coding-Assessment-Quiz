@@ -25,7 +25,7 @@ var questionsOptionList = {
     option303: "var x 2",
     option304: "var -(var)",
 
-    [4]: "End of Quiz?",
+    [4]: "End of Quiz",
     option401: "",
     option402: "",
     option403: "",
@@ -50,14 +50,10 @@ function round1() {
     // 4th button
     var btn4 = document.getElementById('btn-4')
     btn4.textContent = questionsOptionList.option104;
-    if (btn4.addEventListener("click", round2)) {
-        answeredCorrect = 0 + 1;
-        btn1.addEventListener("click", round2)
-        btn2.addEventListener("click", round2)
-        btn3.addEventListener("click", round2)
-    } else {
-        answeredWrong = 0 + 1;
-    }
+    btn4.addEventListener("click", round2Correct);
+    btn1.addEventListener("click", round2Wrong);
+    btn2.addEventListener("click", round2Wrong);
+    btn3.addEventListener("click", round2Wrong);
 };
 
 function round2() {
@@ -76,14 +72,12 @@ function round2() {
     // 4th button
     var btn4 = document.getElementById('btn-4')
     btn4.textContent = questionsOptionList.option204;
-    if (btn1.addEventListener("click", round3)) {
-        answeredCorrect = answeredCorrect + 1;
-    } else {
-        answeredWrong = answeredWrong + 1;
-        btn2.addEventListener("click", round3)
-        btn3.addEventListener("click", round3)
-        btn4.addEventListener("click", round3)
-    }
+
+    btn1.addEventListener("click", round3Correct);
+    btn2.addEventListener("click", round3Wrong);
+    btn3.addEventListener("click", round3Wrong);
+    btn4.addEventListener("click", round3Wrong);
+
 };
 
 function round3() {
@@ -102,14 +96,10 @@ function round3() {
     // 4th button
     var btn4 = document.getElementById('btn-4')
     btn4.textContent = questionsOptionList.option304;
-    if (btn2.addEventListener("click", round4)) {
-        answeredCorrect = answeredCorrect + 1;
-    } else {
-        answeredWrong = answeredWrong + 1;
-        btn1.addEventListener("click", round4)
-        btn3.addEventListener("click", round4)
-        btn4.addEventListener("click", round4)
-    }
+    btn2.addEventListener("click", round4Correct);
+    btn1.addEventListener("click", round4Wrong);
+    btn3.addEventListener("click", round4Wrong);
+    btn4.addEventListener("click", round4Wrong);
 };
 
 function round4() {
@@ -140,13 +130,48 @@ var startQuiz = function () {
     var timeInterval = setInterval(function () {
         timerEl.textContent = timeLeft + " seconds remaining";
         timeLeft--;
-
         if (timeLeft === -2 || endgame === 0) {
             timerEl.textContent = "";
             calculateScore();
             clearInterval(timeInterval);
         }
     }, 1000);
+}
+
+function round2Correct() {
+    round3();
+    addToAnsweredCorrect();
+};
+
+function round2Wrong() {
+    round3();
+    addToAnsweredWrong();
+};
+
+function round3Correct() {
+    round4();
+    addToAnsweredCorrect();
+};
+
+function round3Wrong() {
+    round4();
+    addToAnsweredWrong();
+};
+
+function round4Correct() {
+    addToAnsweredCorrect();
+};
+
+function round4Wrong() {
+    addToAnsweredWrong();
+};
+
+function addToAnsweredCorrect() {
+    answeredCorrect = answeredCorrect + 1;
+}
+
+function addToAnsweredWrong() {
+    answeredWrong = answeredWrong + 1;
 }
 
 function calculateScore() {
